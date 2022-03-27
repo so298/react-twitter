@@ -23,6 +23,31 @@ const dummyTweets: Tweet[] = [
     user: "sample user 1",
     text: "This is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\n",
   },
+  {
+    id: "sample_1",
+    user: "sample user 1",
+    text: "This is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\n",
+  },
+  {
+    id: "sample_1",
+    user: "sample user 1",
+    text: "This is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\n",
+  },
+  {
+    id: "sample_1",
+    user: "sample user 1",
+    text: "This is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\n",
+  },
+  {
+    id: "sample_1",
+    user: "sample user 1",
+    text: "This is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\n",
+  },
+  {
+    id: "sample_1",
+    user: "sample user 1",
+    text: "This is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\nThis is dummy tweet.\n",
+  },
 ];
 
 const BoxTweetItem = styled(Box)((theme) => ({
