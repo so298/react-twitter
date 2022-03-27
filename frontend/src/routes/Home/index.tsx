@@ -1,14 +1,23 @@
-import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  IconButton,
+  Stack,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
-import { Menu } from "@mui/icons-material";
+import { BsStars as StarsIcon } from "react-icons/bs";
+
 import Tweets from "./Tweets";
 import ExploreInHome from "./ExploreInHome";
 
 const drawerWidth = 320;
 
 const HomeAppBar = styled(AppBar)(() => ({
-  width: `calc(100% - ${drawerWidth}px)`,
+  width: `calc(100% - ${drawerWidth * 2}px)`,
   marginLeft: `${drawerWidth}px`,
+  marginRight: `${drawerWidth}px`,
   background: "transparent",
   boxShadow: "none",
   backdropFilter: "blur(12px)",
@@ -41,9 +50,14 @@ const Home = () => {
       <BoxHome>
         <HomeAppBar color="default" position="fixed">
           <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Home
-            </Typography>
+            <Stack direction="row" justifyContent="space-between" width="100%">
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                Home
+              </Typography>
+              <Stack direction="column" justifyContent="center">
+                <StarsIcon size={20} />
+              </Stack>
+            </Stack>
           </Toolbar>
         </HomeAppBar>
         <Main>

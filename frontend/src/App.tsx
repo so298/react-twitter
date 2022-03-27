@@ -14,17 +14,31 @@ import Sidebar from "./layout/Sidebar";
 
 const App = () => {
   const theme = createTheme({
+    palette: {
+      primary: {
+        main: "rgb(29, 155, 240)",
+      }
+    },
     mixins: {
       toolbar: {
         minHeight: "53px",
       },
     },
+    components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            borderRadius: "2000px",
+          }
+        }
+      }
+    }
   });
 
   const drawerWidth = 320;
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex", height: "100%" }} top="0px">
         <CssBaseline />
         <Sidebar drawerWidth={drawerWidth} />
         <Box component="div" width="100%">

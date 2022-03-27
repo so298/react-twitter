@@ -12,6 +12,7 @@ import {
   Box,
   Typography,
   Grid,
+  Avatar,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Tag } from "@mui/icons-material";
@@ -27,6 +28,7 @@ import {
   IoEllipsisHorizontalCircleOutline as MoreIcon,
 } from "react-icons/io5";
 import { BsBookmark as Bookmark } from "react-icons/bs";
+import { BiDotsHorizontalRounded as Dots } from "react-icons/bi";
 
 const Sidebar: FC<{ drawerWidth: number }> = (props) => {
   const drawerItems: Array<[string, JSX.Element]> = [
@@ -36,7 +38,7 @@ const Sidebar: FC<{ drawerWidth: number }> = (props) => {
     ["Messages", <Mail size={30} />],
     ["Bookmarks", <Bookmark size={30} />],
     ["Profile", <Person size={30} />],
-    ["More", <MoreIcon size={30} />]
+    ["More", <MoreIcon size={30} />],
   ];
   const drawerWidth = props.drawerWidth;
 
@@ -47,45 +49,113 @@ const Sidebar: FC<{ drawerWidth: number }> = (props) => {
   }));
 
   const ItemButton = styled(Button)((theme) => ({
-    borderRadius: 2000,
     height: "50px",
   }));
 
   const TweetButton = styled(Button)((theme) => ({
     width: "100%",
     height: "100%",
-    borderRadius: 2000,
+  }));
+
+  const AccountBox = styled(Box)(({ theme }) => ({
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "80%",
+    height: "50px",
+    marginTop: "12px",
+    marginBottom: "24px",
+  }));
+
+  const AccountButton = styled(Button)(({ theme }) => ({
+    height: "50px",
+    width: "100%",
   }));
 
   const drawerContent = (
     <>
-      <Stack direction="column" alignItems="center">
-        <ItemBox>
-          <IconButton color="primary">
-            <TwitterIcon size={30} />
-          </IconButton>
-        </ItemBox>
-        {drawerItems.map(([text, icon]) => (
+      <Stack
+        direction="column"
+        justifyContent="space-between"
+        height="100%"
+        width="100%"
+      >
+        <Stack direction="column" alignItems="center">
           <ItemBox>
-            <ItemButton color="inherit">
-              <Stack direction="row" alignItems="center">
-                <Box display={"flex"} marginRight="16px">
-                  {icon}
-                </Box>
-                <Typography marginRight={"8px"} fontWeight={700}>
-                  {text}
-                </Typography>
-              </Stack>
-            </ItemButton>
+            <IconButton color="primary">
+              <TwitterIcon size={30} />
+            </IconButton>
           </ItemBox>
-        ))}
-        <ItemBox>
-          <TweetButton variant="contained" disableElevation>
-            <Typography fontWeight={700}>
-              Tweet
-            </Typography>
-          </TweetButton>
-        </ItemBox>
+          {drawerItems.map(([text, icon]) => (
+            <ItemBox>
+              <ItemButton color="inherit">
+                <Stack direction="row" alignItems="center">
+                  <Box display={"flex"} marginRight="16px">
+                    {icon}
+                  </Box>
+                  <Typography marginRight={"8px"} fontWeight={700}>
+                    {text}
+                  </Typography>
+                </Stack>
+              </ItemButton>
+            </ItemBox>
+          ))}
+          <ItemBox>
+            <TweetButton variant="contained" disableElevation>
+              <Typography fontWeight={700}>Tweet</Typography>
+            </TweetButton>
+          </ItemBox>
+        </Stack>
+        <Stack direction="column" alignItems="center">
+          <AccountBox>
+            <AccountButton color="inherit">
+              <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="space-between"
+                width="100%"
+                maxWidth="100%"
+                boxSizing="border-box"
+              >
+                <Box display={"flex"} marginRight="16px" flexShrink={0}>
+                  <Avatar />
+                </Box>
+                <Stack
+                  direction="column"
+                  alignItems="flex-start"
+                  justifyContent="center"
+                  flexShrink={1}
+                  overflow="hidden"
+                >
+                  <Typography
+                    component="span"
+                    fontWeight={700}
+                    width="100%"
+                    overflow="hidden"
+                    whiteSpace="nowrap"
+                    textOverflow="ellipsis"  
+                  >
+                    sample name very very long
+                  </Typography>
+                  <Typography
+                    fontWeight={400}
+                    color="rgb(83, 100, 113)"
+                    component="span"
+                  >
+                    @sample_id
+                  </Typography>
+                </Stack>
+                <Stack
+                  direction="column"
+                  justifyContent="center"
+                  flexShrink={0}
+                >
+                  <Dots size={30} />
+                </Stack>
+              </Stack>
+            </AccountButton>
+          </AccountBox>
+        </Stack>
       </Stack>
     </>
   );
