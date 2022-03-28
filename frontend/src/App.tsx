@@ -9,6 +9,7 @@ import Notif from "./routes/Notification";
 import Messages from "./routes/Messages";
 import Profile from "./routes/Profile";
 import NoMatch from "./routes/NoMatch";
+import Bookmarks from "./routes/Bookmarks";
 import { Box, CssBaseline } from "@mui/material";
 import Sidebar from "./layout/Sidebar";
 
@@ -48,7 +49,8 @@ const App = () => {
               <Route path="/home" element={<Home />} />
               <Route path="/explore" element={<Explore />} />
               <Route path="/notification" element={<Notif />} />
-              <Route path="/message" element={<Messages />} />
+              <Route path="/messages" element={<Messages />} />
+              <Route path="/bookmarks" element={<Bookmarks />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/*" element={<NoMatch />} />
             </Routes>

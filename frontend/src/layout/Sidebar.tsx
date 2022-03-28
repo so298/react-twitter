@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Link, Router } from "react-router-dom";
 import {
   List,
   ListItem,
@@ -31,7 +32,7 @@ import { BsBookmark as Bookmark } from "react-icons/bs";
 import { BiDotsHorizontalRounded as Dots } from "react-icons/bi";
 
 const Sidebar: FC<{ drawerWidth: number }> = (props) => {
-  const drawerItems: Array<[string, JSX.Element]> = [
+  const drawerItems: Array<[string, JSX.Element, string?]> = [
     ["Home", <HomeIcon size={30} />],
     ["Explore", <Hash size={30} />],
     ["Notification", <NotificationBell size={30} />],
@@ -82,13 +83,13 @@ const Sidebar: FC<{ drawerWidth: number }> = (props) => {
       >
         <Stack direction="column" alignItems="center">
           <ItemBox>
-            <IconButton color="primary">
+            <IconButton color="primary" href="/" >
               <TwitterIcon size={30} />
             </IconButton>
           </ItemBox>
           {drawerItems.map(([text, icon]) => (
             <ItemBox>
-              <ItemButton color="inherit">
+              <ItemButton color="inherit" href={`/${text.toLowerCase()}`}>
                 <Stack direction="row" alignItems="center">
                   <Box display={"flex"} marginRight="16px">
                     {icon}
@@ -133,7 +134,7 @@ const Sidebar: FC<{ drawerWidth: number }> = (props) => {
                     width="100%"
                     overflow="hidden"
                     whiteSpace="nowrap"
-                    textOverflow="ellipsis"  
+                    textOverflow="ellipsis"
                   >
                     sample name very very long
                   </Typography>
